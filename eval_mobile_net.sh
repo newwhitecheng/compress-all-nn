@@ -1,0 +1,12 @@
+DATASET_DIR=/root/workspace/data/imagenet
+EVAL_DIR=/root/workspace/tfmodel/mobilenet/eval
+CHECKPOINT_DIR=/root/workspace/tfmodel/mobilenet_v1_224/checkpoint/mobilenet_v1_1.0_224.ckpt
+CUDA_VISIBLE_DEVICES=3 python /root/workspace/models/research/slim/eval_image_classifier.py \
+--checkpoint_path=${CHECKPOINT_DIR} \
+--eval_dir=${EVAL_DIR} \
+--dataset_dir=${DATASET_DIR} \
+--dataset_name=imagenet \
+--dataset_split_name=validation \
+--model_name=mobilenet_v1 \
+--eval_image_size=224 \
+--quantize=True 
